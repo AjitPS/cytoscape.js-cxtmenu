@@ -1,7 +1,7 @@
 cytoscape-cxtmenu
 ================================================================================
 
-![Preview](https://raw2.github.com/cytoscape/cytoscape.js-cxtmenu/master/img/preview.png)
+![Preview](https://raw.githubusercontent.com/cytoscape/cytoscape.js-cxtmenu/master/img/preview.png)
 
 ## Description
 
@@ -46,6 +46,11 @@ Note that `jquery` must point to a jQuery object if any sort of `require()` is u
 Plain HTML/JS has the extension registered for you automatically, because no `require()` is needed.
 
 
+## CSS
+
+You can style the font of the command text with the `cxtmenu-content` class.
+
+
 ## API
 
 You initialise the plugin on the same HTML DOM element container used for Cytoscape.js:
@@ -64,7 +69,7 @@ var defaults = {
 	commands: [ // an array of commands to list in the menu
 		/*
 		{ // example command
-			content: 'a command name' // html/text content to be displayed in the menu
+			content: 'a command name', // html/text content to be displayed in the menu
 			select: function(){ // a function to execute when the command is selected
 				console.log( this.id() ) // `this` holds the reference to the active element
 			}
@@ -84,7 +89,15 @@ var defaults = {
 	zIndex: 9999 // the z-index of the ui div
 };
 
-cy.cxtmenu( defaults );
+var cxtmenuApi = cy.cxtmenu( defaults );
+```
+
+You get access to the cxtmenu API as the returned value of calling the extension.  You can use this to clean up and destroy the menu instance:
+
+```js
+var cxtmenuApi = cy.cxtmenu( someOptions );
+
+cxtmenuApi.destroy();
 ```
 
 
