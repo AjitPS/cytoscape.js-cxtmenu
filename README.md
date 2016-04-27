@@ -69,6 +69,7 @@ var defaults = {
   commands: [ // an array of commands to list in the menu or a function that returns the array
     /*
     { // example command
+      fillColor: 'rgba(200, 200, 200, 0.75)', // optional: custom background color for item
       content: 'a command name' // html/text content to be displayed in the menu
       select: function(ele){ // a function to execute when the command is selected
         console.log( ele.id() ) // `ele` holds the reference to the active element
@@ -84,6 +85,7 @@ var defaults = {
   spotlightPadding: 4, // extra spacing in pixels between the element and the spotlight
   minSpotlightRadius: 24, // the minimum radius in pixels of the spotlight
   maxSpotlightRadius: 38, // the maximum radius in pixels of the spotlight
+  openMenuEvents: 'cxttapstart taphold', // cytoscape events that will open the menu (space separated)
   itemColor: 'white', // the colour of text in the command's content
   itemTextShadowColor: 'black', // the text shadow colour of the command's content
   zIndex: 9999 // the z-index of the ui div
